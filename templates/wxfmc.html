@@ -1,0 +1,160 @@
+<html>
+<head>
+	<meta charset="utf-8">	
+	<meta name="viewport" content="user-scalable=no, width=device-width, target-densityDpi=device-dpi,initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5;">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='wxfmc.css') }}">
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="static/wxfmc.js"></script>
+</head>
+<body>
+<div id="menu">
+  <div class="menuRow">
+		<div class="menuItem" onclick="menuClick('fmc');">FMC</div>
+		<div class="menuItem" onclick="menuClick('radio');">Radio</div>
+		<div class="menuItem" onclick="menuClick('tbd');">TBD</div>
+	</div>
+</div>
+
+<div id="fmc">
+	<div id="fmcTop">
+		<div class="fmcTopBtns fmcTopBtnsLeft">
+			<div class="fmcTopBtn" id="fmc_0"></div>
+			<div class="fmcTopBtn" id="fmc_1"></div>
+			<div class="fmcTopBtn" id="fmc_2"></div>
+			<div class="fmcTopBtn" id="fmc_3"></div>
+			<div class="fmcTopBtn" id="fmc_4"></div>
+			<div class="fmcTopBtn" id="fmc_5"></div>
+		</div>
+		<div id="fmcDisp">
+			<div class="fmcDispLine" id="xfmc_Messages">{{messages["xfmc/Messages"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Upper">{{messages["xfmc/Upper"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_2">{{messages["xfmc/Panel_2"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_1">{{messages["xfmc/Panel_1"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_4">{{messages["xfmc/Panel_4"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_3">{{messages["xfmc/Panel_3"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_6">{{messages["xfmc/Panel_6"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_5">{{messages["xfmc/Panel_5"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_8">{{messages["xfmc/Panel_8"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_7">{{messages["xfmc/Panel_7"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_10">{{messages["xfmc/Panel_10"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_9">{{messages["xfmc/Panel_9"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_12">{{messages["xfmc/Panel_12"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Panel_11">{{messages["xfmc/Panel_11"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Scratch">{{messages["xfmc/Scratch"]}}</div>
+		</div>
+		<div class="fmcTopBtns fmcTopBtnsRight">
+			<div class="fmcTopBtn" id="fmc_6"></div>
+			<div class="fmcTopBtn" id="fmc_7"></div>
+			<div class="fmcTopBtn" id="fmc_8"></div>
+			<div class="fmcTopBtn" id="fmc_9"></div>
+			<div class="fmcTopBtn" id="fmc_10"></div>
+			<div class="fmcTopBtn" id="fmc_11"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="fmcStatus">
+		<div id="fmc_70">LNAV</div>
+		<div id="fmc_71">VNAV</div>
+		<div id="fmc_69" class="fmcBtnAct">Auto Throttle</div>
+	</div>
+	<div class="clear"></div>
+	<div id="fmcBot">
+		<div class="fmcBotBtns">
+			<div class="fmcBotBtn" id="fmc_12">INIT<br/>REF</div>
+			<div class="fmcBotBtn" id="fmc_13">RTE</div>
+			<div class="fmcBotBtn" id="fmc_15">DEP<br/>ARR</div>
+			<div class="fmcBotBtn fmcBtnDis" id="fmc_14">AP</div>
+			<div class="fmcBotBtn" id="fmc_16">VNAV</div>
+				<div class="clear"></div>
+			<div class="fmcBotBtn" id="fmc_17">FIX</div>
+			<div class="fmcBotBtn" id="fmc_18">LEGS</div>
+			<div class="fmcBotBtn" id="fmc_19">HOLD</div>
+			<div class="fmcBotBtn" id="fmc_20">PERF</div>
+			<div class="fmcBotBtn" id="fmc_21">PROG</div>
+			<div class="fmcBotBtn" id="fmc_22">EXEC</div>
+				<div class="clear"></div>
+				<div class="fmcBotAlps">
+					<div class="fmcBotAlp" id="fmc_27">A</div>
+					<div class="fmcBotAlp" id="fmc_28">B</div>
+					<div class="fmcBotAlp" id="fmc_29">C</div>
+					<div class="fmcBotAlp" id="fmc_30">D</div>
+					<div class="fmcBotAlp" id="fmc_31"><span class="fmcBotAlpBorder">E</span></div>
+					<div class="fmcBotAlp" id="fmc_32">F</div>
+					<div class="fmcBotAlp" id="fmc_33">G</div>
+					<div class="fmcBotAlp" id="fmc_34">H</div>
+					<div class="fmcBotAlp" id="fmc_35">I</div>
+					<div class="fmcBotAlp" id="fmc_36">J</div>
+					<div class="fmcBotAlp" id="fmc_37">K</div>
+					<div class="fmcBotAlp" id="fmc_38">L</div>
+					<div class="fmcBotAlp" id="fmc_39">M</div>
+					<div class="fmcBotAlp" id="fmc_40"><span class="fmcBotAlpBorder">N</span></div>
+					<div class="fmcBotAlp" id="fmc_41">O</div>
+					<div class="fmcBotAlp" id="fmc_42">P</div>
+					<div class="fmcBotAlp" id="fmc_43">Q</div>
+					<div class="fmcBotAlp" id="fmc_44">R</div>
+					<div class="fmcBotAlp" id="fmc_45">S</div>
+					<div class="fmcBotAlp" id="fmc_46">T</div>
+					<div class="fmcBotAlp" id="fmc_47">U</div>
+					<div class="fmcBotAlp" id="fmc_48">V</div>
+					<div class="fmcBotAlp" id="fmc_49">W</div>
+					<div class="fmcBotAlp" id="fmc_50">X</div>
+					<div class="fmcBotAlp" id="fmc_51">Y</div>
+					<div class="fmcBotAlp" id="fmc_52">Z</div>
+					<div class="fmcBotAlp fmcBotAlpSm" id="fmc_53">SP</div>
+					<div class="fmcBotAlp fmcBotAlpSm" id="fmc_54">DEL</div>
+					<div class="fmcBotAlp" id="fmc_55">/</div>
+					<div class="fmcBotAlp fmcBotAlpSm" id="fmc_56">CLR</div>
+				</div>
+			<div class="fmcBotBtn" id="fmc_23">MENU</div>
+			<div class="fmcBotBtn" id="fmc_24">NAV<br/>RAD</div>
+				<div class="clearleft"></div>
+			<div class="fmcBotBtn" id="fmc_25">PREV<br/>PAGE</div>
+			<div class="fmcBotBtn" id="fmc_26">NEXT<br/>PAGE</div>
+		</div>
+	</div>
+	<div class="clearleft"></div>
+	<br/>
+	<div class="fmcBotNums">
+		<div class="fmcBotNum" id="fmc_57">1</div>
+		<div class="fmcBotNum" id="fmc_58">2</div>
+		<div class="fmcBotNum" id="fmc_59">3</div>
+			<div class="clearleft"></div>
+		<div class="fmcBotNum" id="fmc_60">4</div>
+		<div class="fmcBotNum" id="fmc_61">5</div>
+		<div class="fmcBotNum" id="fmc_62">6</div>
+			<div class="clearleft"></div>
+		<div class="fmcBotNum" id="fmc_63">7</div>
+		<div class="fmcBotNum" id="fmc_64">8</div>
+		<div class="fmcBotNum" id="fmc_65">9</div>
+			<div class="clearleft"></div>
+		<div class="fmcBotNum" id="fmc_66">&hearts;</div>
+		<div class="fmcBotNum" id="fmc_67">0</div>
+		<div class="fmcBotNum" id="fmc_68">&plusmn;</div>
+			<div class="clear"></div>
+	</div>
+</div>
+
+
+
+<div id="radio"  style="display: none">
+	<div class="radioBtn radioBtnAct">COM 1</div>
+	<div class="radioBtn">COM 2</div>
+	<div class="radioBtn">NAV 1</div>
+	<div class="radioBtn">NAV 2</div>
+	<div class="radioBtn">ADF</div>
+	<div class="radioBtn">DME</div>
+	<div class="clear"></div>
+	
+	<div class="radioFreq radioFreqAct"><div class="radioFregBgn">888.888</div>124.850</div>
+	<div class="radioBtn radioBtnSm">&lt;—&gt;</div>
+	<div class="radioFreq radioFreqStd"><div class="radioFregBgn">888.888</div>117.275</div>
+</div>
+
+
+<script>
+	fmc_init();
+</script>
+
+</body>
+</html>

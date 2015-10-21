@@ -1,0 +1,332 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+#menu
+{
+	display: table;
+	width: 100%;
+	margin-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+#menu .menuRow
+{
+	display: table-row;
+}
+
+#menu .menuItem
+{
+	display: table-cell;
+	height: 80px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 200%;
+	background-color: #449;
+	color: #FF3;
+}
+
+
+
+
+#fmc
+{
+	width: 610px;
+}
+
+#fmcDisp
+{
+	float: left;
+	width: 450px;
+	background-color: black;
+	border-radius: 10px;
+	border: 1px solid red;
+	height: 440px;
+	
+	color: white;
+	font-size: 19px
+}
+
+.fmcDispLine
+{
+	background-color: black;
+
+	color: white;
+	font-size: 22px;
+	line-height: 135%;
+	font-family: "monospace";
+	overflow: hidden;
+	white-space: pre;
+}
+
+#xfmc_Upper
+{
+	color: yellow;
+	width: 100%;
+	text-align: center;
+}
+
+#xfmc_Messages
+{
+	color: red;
+	width: 100%;
+	text-align: center;
+}
+
+#xfmc_Scratch
+{
+	color: red;
+	width: 100%;
+	text-align: right;
+}
+
+.fmcTopBtns
+{
+	width: 70px;
+}
+
+.fmcTopBtnsLeft
+{
+	float: left;
+}
+
+.fmcTopBtnsRight
+{
+	float: left;
+}
+
+.fmcTopBtns .fmcTopBtn
+{
+	width: 40px;
+	height: 20px;
+	background-color: blue;
+	border: 5px solid gray;
+	margin: 28px 2px 0px 10px;
+}
+
+.fmcTopBtns .fmcTopBtn:first-child
+{
+	margin-top: 86px;
+}
+
+.fmcBotBtns, .fmcBotNums, 
+{
+	float:left;
+}
+
+.fmcBotAlps
+{
+	float: right;
+	width: 380px;
+	padding-top: 15px;
+}
+
+.fmcBotBtns .fmcBotBtn, .fmcBotNums .fmcBotNum, .fmcBotAlps .fmcBotAlp, #fmcStatus div
+{
+	float: left;
+	width: 85px;
+	height: 40px;
+	background-color: gray;
+	border: 1px solid black;
+	margin: 10px 2px 0px 10px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-shadow: 0 0 2px blue, 0 0 5px #4488FF;
+}
+
+#fmcStatus div
+{
+	width: 30%;
+}
+
+
+.fmcBotBtns .fmcBtnDis
+{
+	color: #CCC;
+	text-shadow: 2px 2px 5px #000;
+}
+
+.fmcBotBtns .fmcBtnAct, #fmcStatus div.fmcBtnAct
+{
+	border: 1px solid yellow;
+	background-color: #2A7;
+	color: yellow;
+	text-shadow: 2px 2px 5px #099;
+}
+
+.fmcBotBtns .fmcBtnCli, #fmcStatus .fmcBtnCli
+{
+	background-color: blue; 
+	color: #48F;
+	text-shadow: 2px 2px 5px gray;
+}
+
+
+.fmcBtnLast, .clear
+{
+	clear: both;
+}
+
+.clearleft
+{
+	clear: left;
+}
+
+.fmcBotNums .fmcBotNum
+{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	font-size: 200%;
+}
+
+.fmcBotAlps .fmcBotAlp
+{
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	font-size: 200%;
+	margin: 10px 10px 0 10px;
+}
+
+.fmcBotAlps .fmcBotAlpSm
+{
+	font-size: 150%;
+}
+
+.fmcBotAlpBorder
+{
+	border: 2px solid blue;
+	width: 36px;
+}
+
+
+@font-face {
+  font-family: "D7MI";
+  src: url("./fonts/DSEG7Modern-Italic.woff") format('woff');
+}
+
+@font-face {
+  font-family: "D14MI";
+  src: url("./fonts/DSEG14Modern-Italic.woff") format('woff');
+}
+
+@font-face {
+  font-family: "D7MBI";
+  src: url("./fonts/DSEG7Modern-BoldItalic.woff") format('woff');
+}
+
+.D7MI {
+font-family: "D7MI";
+}
+
+.D7MBI {
+font-family: "D7MBI";
+}
+
+.D14MI {
+font-family: "D14MI";
+}
+
+
+
+.radioBtn
+{
+	float: left;
+	width: 300px;
+	height: 50px;
+	font-size: 200%;
+	margin: 10px 10px 0 10px;
+	background-color: gray;
+	border: 1px solid black;
+	margin: 10px 2px 0px 10px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-shadow: 0 0 2px blue, 0 0 5px #4488FF;
+}
+
+.radioBtnSm
+{
+	width: 100px;
+}
+
+.radioBtnAct
+{
+	border: 1px solid yellow;
+	background-color: #2A7;
+	color: yellow;
+	text-shadow: 2px 2px 5px #099;
+}
+
+.radioFreq
+{
+	position: relative;
+	z-index: 100;
+	font-family: "D7MBI";
+	color: red;
+	float: left;
+	width: 300px;
+	height: 70px;
+	font-size: 300%;
+	margin: 10px 10px 0 10px;
+	border: 1px solid black;
+	margin: 10px 2px 0px 10px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.radioFregBgn
+{
+	z-index: 50;
+	position: absolute;
+	color: rgba(0,0,0,0.15);
+	top: 11px;
+	left: 33px;
+}
