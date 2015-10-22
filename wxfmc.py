@@ -66,7 +66,7 @@ def send_messages():
     for k, v in messages.iteritems():
 	t=v.split('/',1)[1]
 	u=t.split(';')
-    socketio.emit('my response',  messages)
+    socketio.emit('send_messages',  messages)
 
 	
     

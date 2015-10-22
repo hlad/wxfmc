@@ -32,14 +32,9 @@ function fmc_init()
 {
 	socket = io.connect('http://' + document.domain + ':' + location.port);
 	$("#fmc div").bind("click",this,fmc_click);
-	socket.on('my response', function(data) {
-	    //alert(JSON.stringify(data));
-	    //alert ($("").text(‘<IDENT’).html());
+	socket.on('send_messages', function(data) {
 	    for (var j in data) {
-		//alert(data[j]);
-		//alert(j.replace('/','_'));
-		d=document.getElementById(j.replace('/','_'));
-		d.innerHTML=data[j];
+		$('#'+j.replace('/','_')).text(data[j]).html();
 	    }	    
 	});
 }
