@@ -58,7 +58,7 @@ def update_messages():
     values = client.getDREFs(panels)
     i = 0
     for s in values:
-	o = toString(s)
+	o = unicode(toString(s))
 	messages[panels[i]]=o
 	i=i+1
 
@@ -77,15 +77,17 @@ def forever():
 	update_messages()
 	if old_messages!=messages:
 	    old_messages=dict(messages)
-	    #print_messages()
 	    send_messages()
 
 def toString(a):
-    s=""
+    s=u''
     for i in a:
 	if i<0:
 	    i=i+128
-	s=s+(chr(int(i)))
+	a=chr(int(i))
+	if i==30:		#correct degree character
+	    a=u'\u00b0'
+	s=s+a
     return s
 
 
