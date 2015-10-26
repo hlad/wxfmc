@@ -37,6 +37,12 @@ function fmc_init()
 		$('#'+j.replace('/','_')).text(data[j]).html();
 	    }	    
 	});
+
+	socket.on('send_status', function(status) {
+		if (status['LNAV']==1) { $('#fmc_71').addClass('fmcBtnAct'); } else { $('#fmc_71').removeClass('fmcBtnAct'); }
+		if (status['VNAV']==1) { $('#fmc_70').addClass('fmcBtnAct'); } else { $('#fmc_70').removeClass('fmcBtnAct'); }
+		if (status['ATH']==1) { $('#fmc_69').addClass('fmcBtnAct'); } else { $('#fmc_69').removeClass('fmcBtnAct'); }
+	});
 }
 
 

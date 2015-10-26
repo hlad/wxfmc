@@ -54,9 +54,9 @@
 	</div>
 	<div class="clear"></div>
 	<div id="fmcStatus">
-		<div id="fmc_70">LNAV</div>
-		<div id="fmc_71">VNAV</div>
-		<div id="fmc_69" class="fmcBtnAct">Auto Throttle</div>
+		<div id="fmc_71"{% if status["LNAV"]==1 %} class="fmcBtnAct"{% endif %}>LNAV</div>
+		<div id="fmc_70"{% if status["VNAV"]==1 %} class="fmcBtnAct"{% endif %}>VNAV</div>
+		<div id="fmc_69"{% if status["ATH"]==1 %} class="fmcBtnAct"{% endif %}>Auto Throttle</div>
 	</div>
 	<div class="clear"></div>
 	<div id="fmcBot">

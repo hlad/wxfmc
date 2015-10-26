@@ -34,14 +34,19 @@ panels = ["xfmc/Panel_1",
 old_messages = {}
 messages = {}
 
+status = None
+old_status = None
+status_dict = {}
+
+
 for x in panels:
     messages[x]=''
 
 @app.route("/")
 def default():
     global messages
-    update_messages()
-    return render_template('wxfmc.html',messages=messages)
+    global status_dict
+    return render_template('wxfmc.html',messages=messages, status=status_dict)
 
 @socketio.on('key_event')
 def key_pressed(message):
@@ -62,22 +67,41 @@ def update_messages():
 	messages[panels[i]]=o
 	i=i+1
 
+def update_status():
+    global status
+    status= int(client.getDREF('xfmc/Status')[0])
+
 def send_messages():
-    for k, v in messages.iteritems():
-	t=v.split('/',1)[1]
-	u=t.split(';')
+    #for k, v in messages.iteritems():
+    #	t=v.split('/',1)[1]
+    #	u=t.split(';')
     socketio.emit('send_messages',  messages)
+
+def send_status():
+    socketio.emit('send_status',  status_dict)
 
 	
     
 def forever():
     global old_messages
     global messages
+    global status
+    global old_status
     while True:
 	update_messages()
 	if old_messages!=messages:
 	    old_messages=dict(messages)
 	    send_messages()
+	update_status()
+	if old_status!=status :
+	    old_status=status
+	    status_dict['XFMC'] = 1 if status&1!=0 else 0
+	    status_dict['LNAV'] = 1 if status&2!=0 else 0
+	    status_dict['VNAV'] = 1 if status&4!=0 else 0
+	    status_dict['ATH'] = 1 if status&8!=0 else 0
+	    status_dict['KEYB'] = 1 if status&16!=0 else 0
+	    status_dict['Execute'] = 1 if status&32!=0 else 0
+	    send_status()
 
 def toString(a):
     s=u''
