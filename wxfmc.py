@@ -97,7 +97,7 @@ def forever():
 	    old_status=status
 	    status_dict['XFMC'] = 1 if status&1!=0 else 0
 	    status_dict['LNAV'] = 1 if status&2!=0 else 0
-	    status_dict['VNAV'] = 1 if status&4!=0 else 0
+	    status_dict['VNAV'] = 1 if status&4==0 else 0
 	    status_dict['ATH'] = 1 if status&8!=0 else 0
 	    status_dict['KEYB'] = 1 if status&16!=0 else 0
 	    status_dict['Execute'] = 1 if status&32!=0 else 0

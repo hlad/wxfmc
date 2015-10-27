@@ -42,6 +42,14 @@ function fmc_init()
 		if (status['LNAV']==1) { $('#fmc_71').addClass('fmcBtnAct'); } else { $('#fmc_71').removeClass('fmcBtnAct'); }
 		if (status['VNAV']==1) { $('#fmc_70').addClass('fmcBtnAct'); } else { $('#fmc_70').removeClass('fmcBtnAct'); }
 		if (status['ATH']==1) { $('#fmc_69').addClass('fmcBtnAct'); } else { $('#fmc_69').removeClass('fmcBtnAct'); }
+		if (status['Execute']==1) { $('#fmc_22').addClass('fmcBtnAct'); } else { $('#fmc_22').removeClass('fmcBtnAct'); }
+		if (status['XFMC']==1) { 
+		    $('#fmc_15').addClass('fmcBtnAct'); 
+		    $('#fmc_15').removeClass('fmcBtnDis');
+		} else {
+		    $('#fmc_15').removeClass('fmcBtnAct');
+		    $('#fmc_15').addClass('fmcBtnDis'); 
+		}
 	});
 }
 

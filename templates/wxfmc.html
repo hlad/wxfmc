@@ -63,8 +63,8 @@
 		<div class="fmcBotBtns">
 			<div class="fmcBotBtn" id="fmc_12">INIT<br/>REF</div>
 			<div class="fmcBotBtn" id="fmc_13">RTE</div>
-			<div class="fmcBotBtn" id="fmc_15">DEP<br/>ARR</div>
-			<div class="fmcBotBtn fmcBtnDis" id="fmc_14">AP</div>
+			<div class="fmcBotBtn" id="fmc_14">DEP<br/>ARR</div>
+			<div class="fmcBotBtn {% if status["XFMC"]==1 %}fmcBtnAct{% else %}fmcBtnDis{% endif %}" id="fmc_15">AP</div>
 			<div class="fmcBotBtn" id="fmc_16">VNAV</div>
 				<div class="clear"></div>
 			<div class="fmcBotBtn" id="fmc_17">FIX</div>
@@ -72,7 +72,7 @@
 			<div class="fmcBotBtn" id="fmc_19">HOLD</div>
 			<div class="fmcBotBtn" id="fmc_20">PERF</div>
 			<div class="fmcBotBtn" id="fmc_21">PROG</div>
-			<div class="fmcBotBtn" id="fmc_22">EXEC</div>
+			<div class="fmcBotBtn {% if status["Execute"]==1 %}fmcBtnAct{% endif %}" id="fmc_22">EXEC</div>
 				<div class="clear"></div>
 				<div class="fmcBotAlps">
 					<div class="fmcBotAlp" id="fmc_27">A</div>
