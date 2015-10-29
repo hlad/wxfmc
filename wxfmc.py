@@ -53,6 +53,11 @@ def key_pressed(message):
     k = int(message['data'])
     client.sendDREF("xfmc/Keypath", k)
 
+@socketio.on('connect')
+def on_connect():
+    send_messages()
+    send_status()
+
 def print_messages():
     global messages
     for k in messages:

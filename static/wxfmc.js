@@ -48,6 +48,10 @@ function fmc_init()
 		}
 	});
 
+	socket.on('connect', function(){
+	    socket.emit('connect');
+	});
+
 	$(document).keydown(function(e)
 	{
 		key=e.which;

@@ -27,21 +27,21 @@
 			<div class="fmcTopBtn" id="fmc_5"></div>
 		</div>
 		<div id="fmcDisp">
-			<div class="fmcDispLine" id="xfmc_Messages">{{messages["xfmc/Messages"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Upper">{{messages["xfmc/Upper"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_2">{{messages["xfmc/Panel_2"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_1">{{messages["xfmc/Panel_1"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_4">{{messages["xfmc/Panel_4"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_3">{{messages["xfmc/Panel_3"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_6">{{messages["xfmc/Panel_6"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_5">{{messages["xfmc/Panel_5"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_8">{{messages["xfmc/Panel_8"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_7">{{messages["xfmc/Panel_7"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_10">{{messages["xfmc/Panel_10"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_9">{{messages["xfmc/Panel_9"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_12">{{messages["xfmc/Panel_12"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Panel_11">{{messages["xfmc/Panel_11"]}}</div>
-			<div class="fmcDispLine" id="xfmc_Scratch">{{messages["xfmc/Scratch"]}}</div>
+			<div class="fmcDispLine" id="xfmc_Messages"></div>
+			<div class="fmcDispLine" id="xfmc_Upper"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_2"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_1"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_4"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_3"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_6"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_5"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_8"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_7"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_10"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_9"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_12"></div>
+			<div class="fmcDispLine" id="xfmc_Panel_11"></div>
+			<div class="fmcDispLine" id="xfmc_Scratch"></div>
 		</div>
 		<div class="fmcTopBtns fmcTopBtnsRight">
 			<div class="fmcTopBtn" id="fmc_6"></div>
@@ -54,9 +54,9 @@
 	</div>
 	<div class="clear"></div>
 	<div id="fmcStatus">
-		<div id="fmc_71"{% if status["LNAV"]==1 %} class="fmcBtnAct"{% endif %}>LNAV</div>
-		<div id="fmc_70"{% if status["VNAV"]==1 %} class="fmcBtnAct"{% endif %}>VNAV</div>
-		<div id="fmc_69"{% if status["ATH"]==1 %} class="fmcBtnAct"{% endif %}>Auto Throttle</div>
+		<div id="fmc_71">LNAV</div>
+		<div id="fmc_70">VNAV</div>
+		<div id="fmc_69">Auto Throttle</div>
 	</div>
 	<div class="clear"></div>
 	<div id="fmcBot">
@@ -64,7 +64,7 @@
 			<div class="fmcBotBtn" id="fmc_12">INIT<br/>REF</div>
 			<div class="fmcBotBtn" id="fmc_13">RTE</div>
 			<div class="fmcBotBtn" id="fmc_14">DEP<br/>ARR</div>
-			<div class="fmcBotBtn {% if status["XFMC"]==1 %}fmcBtnAct{% else %}fmcBtnDis{% endif %}" id="fmc_15">AP</div>
+			<div class="fmcBotBtn fmcBtnDis" id="fmc_15">AP</div>
 			<div class="fmcBotBtn" id="fmc_16">VNAV</div>
 				<div class="clear"></div>
 			<div class="fmcBotBtn" id="fmc_17">FIX</div>
@@ -72,7 +72,7 @@
 			<div class="fmcBotBtn" id="fmc_19">HOLD</div>
 			<div class="fmcBotBtn" id="fmc_20">PERF</div>
 			<div class="fmcBotBtn" id="fmc_21">PROG</div>
-			<div class="fmcBotBtn {% if status["Execute"]==1 %}fmcBtnAct{% endif %}" id="fmc_22">EXEC</div>
+			<div class="fmcBotBtn" id="fmc_22">EXEC</div>
 				<div class="clear"></div>
 				<div class="fmcBotAlps">
 					<div class="fmcBotAlp" id="fmc_27">A</div>
