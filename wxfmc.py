@@ -37,6 +37,10 @@ messages = {}
 status = None
 old_status = None
 status_dict = {}
+lon = None
+lat = None
+hdg = None
+position = {}
 
 
 for x in panels:
@@ -76,6 +80,19 @@ def update_status():
     global status
     status= int(client.getDREF('xfmc/Status')[0])
 
+def update_position():
+    global lat
+    global lon
+    global hdg
+    lat = client.getDREF('sim/flightmodel/position/latitude')
+    lon = client.getDREF('sim/flightmodel/position/longitude')
+    hdg = client.getDREF('sim/flightmodel/position/mag_psi')
+    position ['lat'] = lat
+    position ['lon'] = lon
+    position ['hdg'] = hdg
+    
+    
+
 def send_messages():
     #for k, v in messages.iteritems():
     #	t=v.split('/',1)[1]
@@ -85,6 +102,9 @@ def send_messages():
 def send_status():
     socketio.emit('send_status',  status_dict)
 
+def send_position():
+    print position
+    socketio.emit('send_position',  position)
 	
     
 def forever():
@@ -107,6 +127,8 @@ def forever():
 	    status_dict['KEYB'] = 1 if status&16!=0 else 0
 	    status_dict['Execute'] = 1 if status&32!=0 else 0
 	    send_status()
+	update_position()
+	send_position()
 
 def toString(a):
     s=u''

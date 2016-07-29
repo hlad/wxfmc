@@ -48,6 +48,12 @@ function fmc_init()
 		}
 	});
 
+	socket.on('send_position', function(position){
+	    //console.log(position['lat']);
+	    //console.log(position['lon']);
+	    //console.log(position['hdg']);
+	});
+
 	socket.on('connect', function(){
 	    socket.emit('connect');
 	});
