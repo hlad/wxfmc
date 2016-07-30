@@ -55,7 +55,7 @@ function fmc_init()
 	});
 
 	socket.on('connect', function(){
-	    socket.emit('connect');
+	    socket.emit('connected');
 	});
 
 	$(document).keydown(function(e)

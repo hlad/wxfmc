@@ -57,7 +57,7 @@ def key_pressed(message):
     k = int(message['data'])
     client.sendDREF("xfmc/Keypath", k)
 
-@socketio.on('connect')
+@socketio.on('connected')
 def on_connect():
     send_messages()
     send_status()
@@ -103,7 +103,6 @@ def send_status():
     socketio.emit('send_status',  status_dict)
 
 def send_position():
-    print position
     socketio.emit('send_position',  position)
 	
     
