@@ -137,6 +137,8 @@ def toString(a):
 	a=chr(int(i))
 	if i==30:		#correct degree character
 	    a=u'\u00b0'
+	if i==31:		#correct place holder character
+	    a=u'\u2610'
 	s=s+a
     return s
 
